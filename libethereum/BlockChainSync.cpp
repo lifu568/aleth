@@ -231,7 +231,7 @@ bool BlockChainSync::requestDaoForkBlockHeader(NodeID const& _peerID)
 {
     // DAO challenge
     unsigned const daoHardfork = static_cast<unsigned>(host().chain().sealEngine()->chainParams().daoHardforkBlock);
-    if (daoHardfork == 0)
+    if (daoHardfork == 0 || daoHardfork == c_infiniteBlockNumer)
         return false;
 
     m_daoChallengedPeers.insert(_peerID);
